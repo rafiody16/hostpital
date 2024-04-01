@@ -17,14 +17,14 @@ Route::post('user', [UserController::class, 'login']);
 // });
 
 Route::post('pasien', [PasienController::class, 'insert']);
-Route::put('pasien', [PasienController::class, 'update']);
-Route::delete('pasien', [PasienController::class, 'delete']);
+Route::put('pasien/{id}', [PasienController::class, 'update']);
+Route::delete('pasien/{id}', [PasienController::class, 'delete']);
 Route::get('pasien', [PasienController::class, 'getAll']);
 Route::get('pasien/{id_pasien}', [PasienController::class, 'getById']);
 
 Route::post('dokter', [DokterController::class, 'insert']);
-Route::put('dokter', [DokterController::class, 'update']);
-Route::delete('dokter', [DokterController::class, 'delete']);
+Route::put('dokter/{id}', [DokterController::class, 'update']);
+Route::delete('dokter/{id}', [DokterController::class, 'delete']);
 Route::get('dokter', [DokterController::class, 'getAll']);
 Route::get('dokter/{id_dokter}', [DokterController::class, 'getById']);
 
