@@ -67,4 +67,42 @@ class AppointmentController extends Controller
         ]);
     }
 
+    public function delete($id)
+    {
+        $delete = Appointment::where('id_appointment', $id) -> delete();
+
+        if ($delete) {
+            return response() -> json([
+                'success' => true,
+                'message' => 'data berhasil dihapus'
+            ]);
+        } else {
+            return response() -> json([
+                'success' => false,
+                'message' => 'data gagal dihapus'
+            ]);
+        }
+    }
+
+    public function getAll()
+    {
+        $data["count"] = Appointment::count();
+        $data["appointment"] = Appointment::get();
+
+        return response() -> json([
+            'success' => true,
+            'data'    => $data
+        ]);
+    }
+
+    public function getById($id)
+    {
+        $data['appointment'] = Appointment::where('id_appointment', $id) -> get();
+
+        return response() -> json([
+            'success' => true,
+            'data'    => $data
+        ]);
+    }
+
 }
